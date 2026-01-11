@@ -1,6 +1,6 @@
 # Local AI Research Engine
 
-A local, offline-first research assistant that ingests documents, builds knowledge graphs, and answers complex questions with citations using Ollama.
+Local AI Research Engine is an advanced RAG system that runs 100% locally on your machine. By combining semantic search with knowledge graphs, it helps researchers analyze complex document libraries without compromising privacy. Features include automated paper comparisons, contradiction detection, and publication-ready literature reviews
 
 ## Features
 
