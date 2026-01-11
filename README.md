@@ -9,6 +9,7 @@ A local, offline-first research assistant that ingests documents, builds knowled
 - **Hybrid Retrieval**: Vector search + keyword search + graph traversal
 - **Cited Answers**: Every answer includes source citations
 - **Multi-Document Reasoning**: Synthesize information across multiple sources
+- **Advanced Analysis**: Paper comparisons, literature reviews, and contradiction detection
 - **100% Local**: Runs entirely on Ollama - no API calls, complete privacy
 
 ## Prerequisites
@@ -17,7 +18,7 @@ A local, offline-first research assistant that ingests documents, builds knowled
 2. **Ollama** installed and running
 3. **Required Models**:
    ```bash
-   ollama pull qwen2.5:7b
+   ollama pull mistral:latest
    ollama pull nomic-embed-text
    ```
 
