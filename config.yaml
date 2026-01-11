@@ -1,0 +1,81 @@
+# Ollama Configuration
+ollama:
+  base_url: "http://localhost:11434"
+  llm_model: "mistral:latest"
+  embedding_model: "nomic-embed-text"
+  timeout: 120
+  max_retries: 3
+
+# Document Processing
+ingestion:
+  chunk_size: 800  # Target tokens per chunk
+  chunk_overlap: 100  # Overlap between chunks
+  max_chunk_size: 1200  # Maximum tokens
+  supported_formats:
+    - ".pdf"
+    - ".txt"
+    - ".md"
+    - ".py"
+    - ".js"
+    - ".java"
+    - ".cpp"
+
+# Vector Store (ChromaDB)
+vector_store:
+  persist_directory: "./data/embeddings"
+  collection_name: "research_documents"
+  distance_metric: "cosine"
+
+# Keyword Search (BM25)
+keyword_index:
+  persist_path: "./data/keyword_index.pkl"
+  k1: 1.5  # BM25 term frequency saturation
+  b: 0.75  # BM25 length normalization
+
+# Knowledge Graph
+knowledge_graph:
+  db_path: "./data/graph.db"
+  max_relationships_per_chunk: 10
+  entity_types:
+    - "Concept"
+    - "Method"
+    - "Author"
+    - "Paper"
+    - "Tool"
+  relationship_types:
+    - "uses"
+    - "extends"
+    - "contradicts"
+    - "compares_to"
+    - "implements"
+    - "cites"
+
+# Retrieval
+retrieval:
+  vector_top_k: 20
+  keyword_top_k: 20
+  graph_expansion_depth: 2
+  final_top_k: 10
+  rerank_top_k: 5
+  min_similarity_score: 0.3
+
+# Answer Generation
+answer_generation:
+  temperature: 0.3
+  max_tokens: 2000
+  citation_format: "[{source} §{section}]"
+  min_confidence_threshold: 0.5
+
+# Storage Paths
+paths:
+  documents: "./data/documents"
+  embeddings: "./data/embeddings"
+  keyword_index: "./data/keyword_index.pkl"
+  graph_db: "./data/graph.db"
+  logs: "./logs"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}"
+  rotation: "10 MB"
